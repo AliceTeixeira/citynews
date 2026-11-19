@@ -174,3 +174,6 @@ Para atualizar o projeto, execute npm install para instalar as dependencias e np
 - Validar os campos obrigatorios.
 - Verificar o layout no celular.
 - Executar npm run build.
+
+## Categorias de ocorrencias
+O CityNews contempla quatro categorias: buracos nas ruas, iluminacao publica, descarte irregular de lixo e alagamentos.
