@@ -1,0 +1,248 @@
+
+.registro-pagina {
+  min-height: 100vh;
+  background: #f3f6fb;
+  color: #10244b;
+}
+
+.registro-main {
+  padding: 45px 20px 70px;
+}
+
+.registro-container {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 42px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(20, 50, 100, 0.05);
+}
+
+.registro-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1458ef;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.registro-cabecalho {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.registro-icone {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: #e8efff;
+  color: #1458ef;
+}
+
+.registro-cabecalho h1 {
+  font-size: 34px;
+  color: #1458ef;
+  margin: 15px 0;
+}
+
+.registro-cabecalho p {
+  color: #61708b;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.registro-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.registro-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.registro-campo label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #10244b;
+}
+
+.registro-campo input,
+.registro-campo select,
+.registro-campo textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d9e1ed;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #10244b;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+.registro-campo input:focus,
+.registro-campo select:focus,
+.registro-campo textarea:focus {
+  border-color: #1458ef;
+  box-shadow: 0 0 0 3px rgba(20, 88, 239, 0.1);
+}
+
+.registro-campo textarea {
+  resize: vertical;
+  min-height: 135px;
+}
+
+.registro-cep-linha {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.registro-cep-linha input {
+  flex: 1;
+  min-width: 0;
+}
+
+.registro-botao-cep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #e8efff;
+  color: #1458ef;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.registro-botao-cep:hover {
+  background: #d8e5ff;
+}
+
+.registro-botao-cep:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.registro-ajuda {
+  color: #7b8aa5;
+  font-size: 12px;
+}
+
+.registro-endereco {
+  background: #f0f6ff;
+  border: 1px solid #d6e5ff;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.registro-endereco-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1458ef;
+  margin-bottom: 14px;
+}
+
+.registro-endereco-titulo h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.registro-endereco p {
+  margin: 9px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.registro-alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.registro-alerta svg {
+  flex-shrink: 0;
+}
+
+.registro-erro {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.registro-sucesso {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.registro-botao-enviar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 17px;
+  background: #1458ef;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.registro-botao-enviar:hover {
+  background: #1049ce;
+}
+
+.registro-observacao {
+  margin: 0;
+  color: #7b8aa5;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .registro-main {
+    padding: 22px 14px 45px;
+  }
+
+  .registro-container {
+    padding: 26px 20px;
+  }
+
+  .registro-cabecalho h1 {
+    font-size: 28px;
+  }
+
+  .registro-cep-linha {
+    flex-direction: column;
+  }
+
+  .registro-botao-cep {
+    min-height: 48px;
+  }
+}

@@ -1,9 +1,29 @@
 
 import { Routes, Route, Link, useParams } from 'react-router-dom'
+import {
+  MapPin,
+  Lightbulb,
+  Trash2,
+  CloudRain,
+  Construction,
+  ArrowRight,
+  Search,
+  ShieldCheck,
+  GraduationCap,
+  Code2,
+  UserRound,
+} from 'lucide-react'
 import RegistrarOcorrencia from './pages/RegistrarOcorrencia'
 import './App.css'
 
-const ocorrencias = [
+type Ocorrencia = {
+  id: number
+  tipo: string
+  local: string
+  descricao: string
+}
+
+const ocorrencias: Ocorrencia[] = [
   {
     id: 1,
     tipo: 'Iluminação pública',
@@ -26,10 +46,14 @@ const ocorrencias = [
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <header>
-        <h1 className="text-3xl font-extrabold">CityNews</h1>
-        <nav>
+    <div className="min-h-screen">
+      <header className="cabecalho">
+        <Link to="/" className="marca">
+          <MapPin size={27} />
+          <span>CityNews</span>
+        </Link>
+
+        <nav aria-label="Menu principal">
           <Link to="/">Início</Link>
           <Link to="/sobre">Sobre</Link>
           <Link to="/integrantes">Integrantes</Link>
@@ -43,34 +67,99 @@ function Layout({ children }: { children: React.ReactNode }) {
 
       <footer>
         <p>© 2026 CityNews — Sua cidade, sua voz.</p>
+        <p>Projeto acadêmico • Global Solution FIAP</p>
       </footer>
-    </>
+    </div>
   )
 }
 
 function Home() {
+  const categorias = [
+    {
+      titulo: 'Buracos nas ruas',
+      descricao: 'Ajude a identificar vias que precisam de manutenção.',
+      Icone: Construction,
+    },
+    {
+      titulo: 'Iluminação pública',
+      descricao: 'Informe problemas de iluminação em ruas e praças.',
+      Icone: Lightbulb,
+    },
+    {
+      titulo: 'Descarte irregular',
+      descricao: 'Registre pontos de descarte inadequado de resíduos.',
+      Icone: Trash2,
+    },
+    {
+      titulo: 'Alagamentos',
+      descricao: 'Sinalize regiões afetadas pelo acúmulo de água.',
+      Icone: CloudRain,
+    },
+  ]
+
   return (
     <Layout>
-      <section>
-        <h2>Sua cidade, sua voz.</h2>
-        <p>
-          O CityNews é uma plataforma de participação cidadã
-          para identificar problemas urbanos e dar mais
-          visibilidade às necessidades da comunidade.
-        </p>
-        <Link to="/registrar" className="botao">
-          Registrar ocorrência
-        </Link>
+      <section className="hero-citynews hero-com-imagem">
+        <div className="hero-conteudo">
+          <span className="etiqueta">
+            <MapPin size={15} />
+            Tecnologia e cidadania
+          </span>
+
+          <h1>Sua cidade, sua voz.</h1>
+
+          <p>
+            Pequenas ações podem transformar grandes cidades.
+            Identifique problemas urbanos, consulte endereços
+            e participe da construção de uma comunidade melhor.
+          </p>
+
+          <div className="acoes-hero">
+            <Link to="/registrar" className="botao">
+              Registrar ocorrência <ArrowRight size={18} />
+            </Link>
+
+            <Link to="/ocorrencias" className="botao-secundario">
+              Explorar ocorrências
+            </Link>
+          </div>
+        </div>
+
+        <div className="hero-imagem">
+          <img
+            src="/iluminacao-citynews.png"
+            alt="Iluminação pública em uma cidade ao anoitecer, com marcador de ocorrência"
+          />
+        </div>
       </section>
 
-      <section id="ocorrencias">
-        <h2>O que você pode registrar?</h2>
-        <ul>
-          <li>Buracos nas ruas</li>
-          <li>Problemas de iluminação pública</li>
-          <li>Descarte irregular de lixo</li>
-          <li>Alagamentos</li>
-        </ul>
+      <section className="categorias-citynews">
+        <div className="cabecalho-secao">
+          <span className="subtitulo-secao">PARTICIPE</span>
+          <h2>O que você pode registrar?</h2>
+          <p>Conheça situações urbanas que merecem atenção.</p>
+        </div>
+
+        <div className="grade-categorias">
+          {categorias.map(({ titulo, descricao, Icone }) => (
+            <article className="categoria-card" key={titulo}>
+              <div className="categoria-icone">
+                <Icone size={27} strokeWidth={1.8} />
+              </div>
+              <h3>{titulo}</h3>
+              <p>{descricao}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="chamada-final">
+        <ShieldCheck size={34} />
+        <h2>Uma cidade melhor começa com participação.</h2>
+        <p>Conheça o projeto e explore suas funcionalidades.</p>
+        <Link to="/sobre" className="botao">
+          Conhecer o CityNews <ArrowRight size={18} />
+        </Link>
       </section>
     </Layout>
   )
@@ -80,21 +169,42 @@ function Sobre() {
   return (
     <Layout>
       <section className="pagina-interna">
-        <h2>Sobre o CityNews</h2>
+        <span className="subtitulo-secao">NOSSA PROPOSTA</span>
+        <h1>Sobre o CityNews</h1>
+
         <p>
-          O CityNews nasceu como uma proposta acadêmica
-          de tecnologia cidadã para aproximar moradores
-          dos desafios encontrados nos espaços urbanos.
+          O CityNews é uma proposta acadêmica de tecnologia cidadã
+          criada para facilitar a identificação de problemas urbanos.
         </p>
+
         <p>
-          A plataforma permite consultar endereços e
-          preparar registros de ocorrências, incentivando
-          a participação da população.
+          A plataforma oferece consulta de endereços por CEP,
+          formulários de ocorrência e navegação por categorias.
         </p>
+
         <p>
-          Nosso objetivo é tornar a identificação de
-          problemas urbanos mais simples e acessível.
+          Nosso objetivo é tornar a participação cidadã mais
+          simples, acessível e organizada.
         </p>
+
+        <p>
+          Esta versão é um protótipo Front-End. O envio e o
+          armazenamento de ocorrências dependem de uma API de cadastro.
+        </p>
+
+        <img
+          src="/cidade-ocorrencia.png"
+          alt="Cidadã fotografando um problema urbano"
+          loading="lazy"
+          style={{
+            display: 'block',
+            width: '100%',
+            maxWidth: '850px',
+            height: 'auto',
+            margin: '32px auto 0',
+            borderRadius: '18px',
+          }}
+        />
       </section>
     </Layout>
   )
@@ -104,14 +214,33 @@ function Integrantes() {
   return (
     <Layout>
       <section className="pagina-interna">
-        <h2>Integrantes</h2>
-        <p>Projeto desenvolvido para a Global Solution FIAP 2026.</p>
-        <div className="cartao">
-          <h3>Nome completo do integrante</h3>
-          <p>RM: preencher</p>
-          <p>Turma: preencher</p>
-          <p>Responsável pelo desenvolvimento Front-End.</p>
-        </div>
+        <span className="subtitulo-secao">DESENVOLVIMENTO</span>
+        <h1>Quem está por trás do CityNews?</h1>
+
+        <p>
+          Conheça a estudante responsável pelo desenvolvimento
+          Front-End do projeto.
+        </p>
+
+        <article className="cartao integrante-card">
+          <div className="avatar">AT</div>
+          <h2>Alice Teixeira Caldeira</h2>
+
+          <p>
+            <UserRound size={17} className="inline-block" />
+            {' '}RM 556293
+          </p>
+
+          <p>
+            <GraduationCap size={17} className="inline-block" />
+            {' '}Turma 1TDSPV — FIAP
+          </p>
+
+          <p>
+            <Code2 size={17} className="inline-block" />
+            {' '}Desenvolvimento Front-End
+          </p>
+        </article>
       </section>
     </Layout>
   )
@@ -121,33 +250,38 @@ function FAQ() {
   return (
     <Layout>
       <section className="pagina-interna">
-        <h2>Perguntas frequentes</h2>
+        <span className="subtitulo-secao">DÚVIDAS</span>
+        <h1>Perguntas frequentes</h1>
 
         <details>
           <summary>O que é o CityNews?</summary>
-          <p>É um projeto acadêmico voltado à participação cidadã.</p>
+          <p>
+            É um protótipo acadêmico voltado à participação
+            cidadã e à identificação de problemas urbanos.
+          </p>
         </details>
 
         <details>
           <summary>Como consultar um endereço?</summary>
           <p>
-            Na página de registro, informe um CEP e clique
-            em Buscar endereço.
+            Acesse Registrar ocorrência, digite um CEP
+            e clique em Buscar endereço.
           </p>
         </details>
 
         <details>
           <summary>As ocorrências são enviadas à prefeitura?</summary>
           <p>
-            Não. Esta versão é um protótipo Front-End.
-            O envio depende de uma API de cadastro.
+            Não. O CityNews ainda não possui integração
+            com sistemas de atendimento público.
           </p>
         </details>
 
         <details>
           <summary>Os exemplos de ocorrências são reais?</summary>
           <p>
-            Não. Os exemplos exibidos são ilustrativos.
+            Não. Os registros exibidos são ilustrativos
+            e servem para demonstrar a interface.
           </p>
         </details>
       </section>
@@ -159,23 +293,39 @@ function Contato() {
   return (
     <Layout>
       <section className="pagina-interna">
-        <h2>Contato</h2>
-        <p>Envie uma mensagem sobre o projeto CityNews.</p>
+        <span className="subtitulo-secao">FALE CONOSCO</span>
+        <h1>Contato</h1>
+        <p>Tem alguma sugestão sobre o CityNews?</p>
 
         <form
           onSubmit={(evento) => {
             evento.preventDefault()
-            alert('Mensagem validada. O envio ainda não está disponível.')
+            alert('Mensagem validada. O envio depende de uma API.')
           }}
         >
           <label htmlFor="nome">Nome</label>
-          <input id="nome" required minLength={3} />
+          <input
+            id="nome"
+            placeholder="Seu nome"
+            minLength={3}
+            required
+          />
 
           <label htmlFor="email">E-mail</label>
-          <input id="email" type="email" required />
+          <input
+            id="email"
+            type="email"
+            placeholder="seuemail@exemplo.com"
+            required
+          />
 
           <label htmlFor="mensagem">Mensagem</label>
-          <textarea id="mensagem" rows={5} required />
+          <textarea
+            id="mensagem"
+            rows={5}
+            placeholder="Escreva sua mensagem..."
+            required
+          />
 
           <button type="submit">Validar mensagem</button>
         </form>
@@ -188,19 +338,28 @@ function ConsultarOcorrencias() {
   return (
     <Layout>
       <section className="pagina-interna">
-        <h2>Ocorrências da cidade</h2>
+        <div className="titulo-com-icone">
+          <Search size={29} />
+          <h1>Ocorrências da cidade</h1>
+        </div>
+
         <p>
-          Exemplos ilustrativos para demonstrar a navegação
-          e a visualização de detalhes.
+          Explore registros ilustrativos para conhecer
+          o funcionamento da plataforma.
         </p>
 
         <div className="grade-cartoes">
           {ocorrencias.map((item) => (
             <article className="cartao" key={item.id}>
-              <h3>{item.tipo}</h3>
-              <p>{item.local}</p>
+              <span className="tag">Exemplo ilustrativo</span>
+              <h2>{item.tipo}</h2>
+              <p>
+                <MapPin size={16} className="inline-block" />
+                {' '}{item.local}
+              </p>
               <Link to={`/ocorrencias/${item.id}`}>
-                Ver detalhes
+                Ver detalhes{' '}
+                <ArrowRight size={16} className="inline-block" />
               </Link>
             </article>
           ))}
@@ -216,6 +375,7 @@ function ConsultarOcorrencias() {
 
 function DetalhesOcorrencia() {
   const { id } = useParams()
+
   const ocorrencia = ocorrencias.find(
     (item) => item.id === Number(id)
   )
@@ -225,16 +385,18 @@ function DetalhesOcorrencia() {
       <section className="pagina-interna">
         {ocorrencia ? (
           <>
-            <h2>{ocorrencia.tipo}</h2>
+            <span className="tag">Registro ilustrativo</span>
+            <h1>{ocorrencia.tipo}</h1>
             <p><strong>Local:</strong> {ocorrencia.local}</p>
             <p>{ocorrencia.descricao}</p>
-            <p>Registro ilustrativo para demonstração.</p>
           </>
         ) : (
-          <h2>Ocorrência não encontrada</h2>
+          <h1>Ocorrência não encontrada</h1>
         )}
 
-        <Link to="/ocorrencias">Voltar às ocorrências</Link>
+        <Link to="/ocorrencias" className="link-acao">
+          Voltar às ocorrências
+        </Link>
       </section>
     </Layout>
   )
@@ -251,7 +413,17 @@ function App() {
       <Route path="/registrar" element={<RegistrarOcorrencia />} />
       <Route path="/ocorrencias" element={<ConsultarOcorrencias />} />
       <Route path="/ocorrencias/:id" element={<DetalhesOcorrencia />} />
-      <Route path="*" element={<Layout><h2>Página não encontrada</h2></Layout>} />
+      <Route
+        path="*"
+        element={
+          <Layout>
+            <section className="pagina-interna">
+              <h1>Página não encontrada</h1>
+              <Link to="/">Voltar ao início</Link>
+            </section>
+          </Layout>
+        }
+      />
     </Routes>
   )
 }
