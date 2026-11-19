@@ -167,3 +167,10 @@ O projeto foi testado em diferentes tamanhos de tela, incluindo celular e comput
 
 ## Atualizacao do projeto
 Para atualizar o projeto, execute npm install para instalar as dependencias e npm run build para verificar a compilacao antes da publicacao.
+
+## Checklist de verificacao
+- Conferir os links de navegacao.
+- Testar a consulta de CEP.
+- Validar os campos obrigatorios.
+- Verificar o layout no celular.
+- Executar npm run build.
