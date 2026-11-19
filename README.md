@@ -177,3 +177,6 @@ Para atualizar o projeto, execute npm install para instalar as dependencias e np
 
 ## Categorias de ocorrencias
 O CityNews contempla quatro categorias: buracos nas ruas, iluminacao publica, descarte irregular de lixo e alagamentos.
+
+## Melhorias futuras
+Implementar cadastro de ocorrencias em API REST Java, armazenamento em banco de dados e acompanhamento do status das solicitacoes.
