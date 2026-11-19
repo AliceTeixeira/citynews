@@ -158,3 +158,6 @@ Projeto desenvolvido para a Global Solution 2026 da FIAP, na disciplina de Front
 
 ## Site publicado
 Acesse o CityNews: https://global-citynews.vercel.app
+
+## Acessibilidade
+O CityNews utiliza rotulos nos formularios, mensagens de validacao e navegacao por links para facilitar a utilizacao da plataforma.
