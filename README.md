@@ -155,3 +155,6 @@ Link da aplicação publicada: a adicionar após a publicação na Vercel.
 ## Contexto acadêmico
 
 Projeto desenvolvido para a Global Solution 2026 da FIAP, na disciplina de Front-End Design Engineering.
+
+## Site publicado
+Acesse o CityNews: https://global-citynews.vercel.app
