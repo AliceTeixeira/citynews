@@ -164,3 +164,6 @@ O CityNews utiliza rotulos nos formularios, mensagens de validacao e navegacao p
 
 ## Testes realizados
 O projeto foi testado em diferentes tamanhos de tela, incluindo celular e computador. A compilacao de producao foi verificada com o comando npm run build.
+
+## Atualizacao do projeto
+Para atualizar o projeto, execute npm install para instalar as dependencias e npm run build para verificar a compilacao antes da publicacao.
