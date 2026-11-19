@@ -161,3 +161,6 @@ Acesse o CityNews: https://global-citynews.vercel.app
 
 ## Acessibilidade
 O CityNews utiliza rotulos nos formularios, mensagens de validacao e navegacao por links para facilitar a utilizacao da plataforma.
+
+## Testes realizados
+O projeto foi testado em diferentes tamanhos de tela, incluindo celular e computador. A compilacao de producao foi verificada com o comando npm run build.
